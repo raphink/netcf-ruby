@@ -39,6 +39,17 @@ Netcf_new(int argc, VALUE *argv, VALUE class)
 	return netcf;
 }
 
+static VALUE
+Netcf_close(VALUE s)
+{
+        struct netcf *_netcf;
+
+        ncf_close(_netcf);
+        DATA_PTR(s) = NULL;
+
+        return Qnil;
+}
+
 
 static VALUE
 Netcf_change_begin(VALUE self, VALUE flags)
@@ -269,6 +280,7 @@ Init__netcf() {
 	rb_define_method(cNetcf, "list_interfaces", Netcf_list_interfaces, 1);
 	rb_define_method(cNetcf, "lookup_by_name", Netcf_lookup_by_name, 1);
 	rb_define_method(cNetcf, "num_of_interfaces", Netcf_num_of_interfaces, 1);
+	rb_define_method(cNetcf, "close", Netcf_close, 0);
 
 	cNetcfIf = rb_define_class("NetcfIf", rb_cObject);
 
