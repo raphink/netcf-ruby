@@ -13,7 +13,7 @@ require 'rake/gempackagetask'
 
 PKG_NAME='ruby-netcf'
 GEM_NAME=PKG_NAME
-PKG_VERSION='0.0.1'
+PKG_VERSION='0.0.2'
 EXT_CONF='ext/netcf/extconf.rb'
 MAKEFILE="ext/netcf/Makefile"
 NETCF_MODULE="ext/netcf/_netcf.so"
