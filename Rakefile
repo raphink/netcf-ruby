@@ -7,9 +7,9 @@
 # See COPYING for details
 
 require 'rake/clean'
-require 'rake/rdoctask'
+require 'rdoc/task'
 require 'rake/testtask'
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 
 PKG_NAME='ruby-netcf'
 GEM_NAME=PKG_NAME
@@ -96,7 +96,7 @@ SPEC = Gem::Specification.new do |s|
     s.description = "Provides bindings for netcf."
 end
 
-Rake::GemPackageTask.new(SPEC) do |pkg|
+Gem::PackageTask.new(SPEC) do |pkg|
     pkg.need_tar = true
     pkg.need_zip = true
 end
